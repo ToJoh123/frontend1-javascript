@@ -38,5 +38,5 @@ fetch('./data.json')
         document.getElementById("birthYear").textContent = data[i].birthYear;
         document.getElementById("zodiac").textContent = data[i].zodiac.name + " " + data[i].zodiac.symbol;
       })
-  .catch((err) => console.log(err));
-});
+  
+}).catch((err) => console.log(err));
