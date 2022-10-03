@@ -10,7 +10,7 @@ const example = require('./functions');
 const open = require('open');
 const uuidv4 = require('uuid').v4
 const pm2 = require('pm2')
-const pathjson = require('./data/dev/data.json');
+const pathjson = require('./www/public/group-4/data.json');
 
 const envFolder = process.env.GROUP_FOLDER_NAME || '';
 const splash = `
@@ -34,16 +34,16 @@ setupGroups();
 const rl = readline.createInterface({
 	input: process.stdin,
 	output: process.stdout,
-	prompt: promptMessage
+    prompt: promptMessage
 })
 rl.on("line", (line) => {
-	execute(line)
+    execute(line)
 })
-rl.on('keypress', async (s, k) => {
-	setTimeout(function () {
-		rl._refreshLine(); // force refresh colors
-
-	}, 0)
+rl.on('keypress', async (s,k) => {
+    setTimeout(function() {
+        rl._refreshLine(); // force refresh colors
+       
+    }, 0)
 })
  
 var personalInfo = {};
@@ -77,17 +77,17 @@ personalInfo._SECRET_KEY = uuidv4();
 
 
 function execute(input) {
-	console.log(input)
+    console.log(input)
 	let command = input.split(' ');
 	switch (command[0]) {
-		case 'www':
-			open(`http://localhost:${process.env.EXPRESS_PORT || 3000}`)
-			break
-		case 'api':
-			open(`http://localhost:${process.env.EXPRESS_PORT || 3000}/api`)
-			break
+        case 'www':
+            open(`http://localhost:${process.env.EXPRESS_PORT || 3000}`)
+            break
+        case 'api':
+            open(`http://localhost:${process.env.EXPRESS_PORT || 3000}/api`)
+            break
 		case 'list':
-			console.debug([...students(), ...teachers()]); // merge the two arrays of student- and teacher-objects
+			console.debug([ ...students(), ...teachers() ]); // merge the two arrays of student- and teacher-objects
 			break;
 		case 'students':
 			console.debug(students());
@@ -105,7 +105,7 @@ function execute(input) {
 		case 'quit':
 		case 'q':
 			console.log('Exiting front end');
-			pm2.stop('all')
+            pm2.stop('all')
 			process.exit()
 		case 'help':
 		default:
