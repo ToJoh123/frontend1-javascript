@@ -10,6 +10,7 @@ const example = require('./functions');
 const open = require('open');
 const uuidv4 = require('uuid').v4
 const pm2 = require('pm2')
+const pathjson = require('./data/dev/data.json');
 
 const envFolder = process.env.GROUP_FOLDER_NAME || '';
 const splash = `
@@ -44,37 +45,36 @@ rl.on('keypress', async (s, k) => {
 
 	}, 0)
 })
+ 
+var personalInfo = {};
+console.log(clc.redBright('BERÄTTA OM DIG SJÄLV'));
+console.log('Förnamn'); 
+personalInfo.firstname = prompt(promptMessage);
+console.log('Efternamn');
+personalInfo.lastname = prompt(promptMessage);
+console.log('Discord(namn#nr)');
+personalInfo.discord = prompt(promptMessage);
+console.log('Github användarnamn');
+personalInfo.github = prompt(promptMessage);
+console.log('Personlighetstyp (gul, grön, röd, blå)');
+personalInfo.personalityType = prompt(promptMessage);
+console.log('Födelsemånad (1-12)');
+const date = {
+	month: 1,
+	day: 1
+};
+date.month = prompt(promptMessage);
+console.log('Födelsedag (1-31) \n');
+date.day = prompt(promptMessage);
+console.log('Födelseår fyra siffror');
+personalInfo.birthYear = prompt(promptMessage);
+personalInfo.zodiac = zodiac.getSignByDate(date);
 
-if (!fs.existsSync('./secrets.json')) {
-	let personalInfo = {};
-	console.log(clc.redBright('BERÄTTA OM DIG SJÄLV'));
-	console.log('Förnamn');
-	personalInfo.firstname = prompt(promptMessage);
-	console.log('Efternamn');
-	personalInfo.lastname = prompt(promptMessage);
-	console.log('Discord(namn#nr)');
-	personalInfo.discord = prompt(promptMessage);
-	console.log('Github användarnamn');
-	personalInfo.github = prompt(promptMessage);
-	open('https://www.utbildning.se/inspiration/kunskapstest/disc-test-14839');
-	console.log('Personlighetstyp (gul, grön, röd, blå)');
-	personalInfo.personalityType = prompt(promptMessage);
-	console.log('Födelsemånad (1-12)');
-	const date = {
-		month: 1,
-		day: 1
-	};
-	date.month = prompt(promptMessage);
-	console.log('Födelsedag (1-31) \n');
-	date.day = prompt(promptMessage);
-	console.log('Födelseår fyra siffror');
-	personalInfo.birthYear = prompt(promptMessage);
-	personalInfo.zodiac = zodiac.getSignByDate(date);
-	console.debug(personalInfo);
-	fs.writeFileSync('./data/dev/' + personalInfo.github + '.json', JSON.stringify(personalInfo));
-	personalInfo._SECRET_KEY = uuidv4();
-	fs.writeFileSync('secrets.json', JSON.stringify(personalInfo));
-}
+pathjson.push(personalInfo);
+fs.writeFileSync('./data/dev/data.json', JSON.stringify(pathjson),'utf-8');
+personalInfo._SECRET_KEY = uuidv4();
+	
+
 
 function execute(input) {
 	console.log(input)
