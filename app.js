@@ -45,9 +45,8 @@ rl.on('keypress', async (s,k) => {
        
     }, 0)
 })
-
-
-let personalInfo = {};
+ 
+var personalInfo = {};
 console.log(clc.redBright('BERÄTTA OM DIG SJÄLV'));
 console.log('Förnamn'); 
 personalInfo.firstname = prompt(promptMessage);
@@ -57,8 +56,6 @@ console.log('Discord(namn#nr)');
 personalInfo.discord = prompt(promptMessage);
 console.log('Github användarnamn');
 personalInfo.github = prompt(promptMessage);
-console.log('Favorit mat');
-personalInfo.mat = prompt(promptMessage);
 console.log('Personlighetstyp (gul, grön, röd, blå)');
 personalInfo.personalityType = prompt(promptMessage);
 console.log('Födelsemånad (1-12)');
@@ -74,9 +71,9 @@ personalInfo.birthYear = prompt(promptMessage);
 personalInfo.zodiac = zodiac.getSignByDate(date);
 
 pathjson.push(personalInfo);
-fs.writeFileSync('./www/public/group-4/data.json', JSON.stringify(pathjson),'utf-8');
+fs.writeFileSync('./data/dev/data.json', JSON.stringify(pathjson),'utf-8');
 personalInfo._SECRET_KEY = uuidv4();
-
+	
 
 
 function execute(input) {
