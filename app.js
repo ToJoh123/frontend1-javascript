@@ -71,7 +71,7 @@ personalInfo.birthYear = prompt(promptMessage);
 personalInfo.zodiac = zodiac.getSignByDate(date);
 
 pathjson.push(personalInfo);
-fs.writeFileSync('./data/dev/data.json', JSON.stringify(pathjson),'utf-8');
+fs.writeFileSync('./www/public/group-4/data.json', JSON.stringify(pathjson),'utf-8');
 personalInfo._SECRET_KEY = uuidv4();
 	
 
