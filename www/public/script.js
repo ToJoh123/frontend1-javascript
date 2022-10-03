@@ -1,17 +1,15 @@
 console.log("Hello World from console");
-// document.writeln("Hello world");
+// document.writeln("This is appended to the nodes in document.body") // this is a basic way to write to the document. 
+console.log(document.body)
+// console.log(document.getElementById("DocumentTitle").innerText);
 
-// console.log("Fetching all students");
-
-// fetch('http://localhost:3000/api/get/')
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
-
-// let group = "example-grop";
-
-// console.log("Fetching group " + group);
-
-// fetch('http://localhost:3000/api/group/' + group)
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
-
+// const init = function() {
+// console.log(document.getElementById("DocumentTitle").innerText);
+// document.writeln("This is appended to the nodes in document.body") // this is a basic way to write to the document. 
+// }
+function init() {
+    let titleElement = document.getElementById("DocumentTitle");// .innerText = "Jag är en ändrad text";
+    let newP = document.createElement("p");
+    newP.innerText="Jag är innehåll från kod.";
+    titleElement.parentNode.append(newP);
+}
