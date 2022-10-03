@@ -1,4 +1,4 @@
-fetch('../../../secrets.json')
+fetch('/secrets.json')
   .then((res) => res.json())
   .then((data) => {
     document.getElementById("name").textContent = data.firstname + " " + data.lastname;
