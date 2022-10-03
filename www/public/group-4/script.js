@@ -25,8 +25,14 @@ fetch('./data.json')
       i = data.length - 1;
     }
         document.getElementById("name").textContent = data[i].firstname + " " + data[i].lastname;
+<<<<<<< HEAD
         document.getElementById("github").href = `https://github.com/${data[i].github}`;
         document.getElementById("github").textContent = data[i].github;
+=======
+        document.getElementById("discord").textContent = data[i].discord;
+        document.getElementById("github").href = `https://github.com/${data[i].github}`;
+          document.getElementById("github").textContent = data[i].github;
+>>>>>>> main
         document.getElementById("personalityType").textContent = data[i].personalityType;
         document.getElementById("favoritmat").textContent = data[i].mat;
         document.getElementById("birthYear").textContent = data[i].birthYear;
