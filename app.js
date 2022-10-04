@@ -71,7 +71,9 @@ personalInfo.birthYear = prompt(promptMessage);
 personalInfo.zodiac = zodiac.getSignByDate(date);
 
 pathjson.push(personalInfo);
-fs.writeFileSync('./www/public/group-4/data.json', JSON.stringify(pathjson),'utf-8');
+fs.writeFileSync('./www/public/group-4/data.json', JSON.stringify(pathjson, null, 2),'utf-8');
+// la till (null, 2) för att få en snyggare json fil. 
+// 2 är antal mellanslag (indentering) som ska vara mellan varje objekt.
 personalInfo._SECRET_KEY = uuidv4();
 	
 
