@@ -4,6 +4,7 @@ let discord = document.getElementById("discord");
 let github = document.getElementById("github"); 
 let personalityType = document.getElementById("personalityType"); 
 let favoritMat = document.getElementById("favoritmat"); 
+let inriktning = document.getElementById("programmeringsInriktning"); // added inriktning
 let birthYear = document.getElementById("birthyear"); 
 let zodiac = document.getElementById("zodiac");
 
@@ -33,6 +34,7 @@ fetch('./data.json') // using fetch to get data from our json file
           github.textContent = data[i].github;
           personalityType.textContent = data[i].personalityType;
           favoritMat.textContent = data[i].mat;
+          inriktning.textContent = data[i].inriktning; // added inriktning
           birthYear.textContent = data[i].birthYear;
           zodiac.textContent = data[i].zodiac.name + " " + data[i].zodiac.symbol;
   })
@@ -50,6 +52,7 @@ fetch('./data.json') // using fetch to get data from our json file
           github.textContent = data[i].github;
           personalityType.textContent = data[i].personalityType;
           favoritMat.textContent = data[i].mat;
+          inriktning.textContent = data[i].inriktning; // added inriktning
           birthYear.textContent = data[i].birthYear;
           zodiac.textContent = data[i].zodiac.name + " " + data[i].zodiac.symbol;
         })
@@ -67,6 +70,7 @@ fetch('./data.json') // using fetch to get data from our json file
         github.textContent = element.github;
         personalityType.textContent = element.personalityType;
         favoritMat.textContent = element.mat;
+        inriktning.textContent = element.inriktning;
         birthYear.textContent = element.birthYear;
         zodiac.textContent = element.zodiac.name + " " + element.zodiac.symbol;
       }
