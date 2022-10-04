@@ -1,9 +1,9 @@
-fetch('./data.json')
+const getData = async () => {
+  fetch('./data.json')
   .then((res) => res.json())
   .then((data) => {
     let next = document.getElementById("next");
     let i = 0;
-  
     next.addEventListener("click", () => {
       i++;
       if (i > data.length - 1) {
