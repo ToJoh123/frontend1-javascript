@@ -66,5 +66,23 @@
       "dateMin": "2000-12-22",
       "dateMax": "2000-01-20"
     }
+  },
+  {
+    "firstname": "Bagher",
+    "lastname": "Classified",
+    "discord": "Classified",
+    "github": "Classified",
+    "mat": "Classified",
+    "inriktning": "Classified",
+    "personalityType": "Classified",
+    "birthYear": "Classified",
+    "zodiac": {
+      "name": "Classified",
+      "element": "Classified",
+      "stone": "Classified",
+      "symbol": "",
+      "dateMin": "Classified",
+      "dateMax": "Classified"
+    }
   }
 ]
