@@ -10,7 +10,7 @@ let birthYear = document.getElementById("birthyear");
 let zodiac = document.getElementById("zodiac");
 
 fetch('./data.json') // using fetch to get data from our json file
-  .then((res) => res.json()) // res = response
+  .then((res) => res.json()) // res = response. Sends a JSON response of the data in data.json
   .then((data) => { // we get the data unpacked with the .json.
     // we create a "for of" loop that loops through the data in data.json and this will take all the firstnames in the json file and put them as options in the datalist in the HTML file
     for (const element of data) {
