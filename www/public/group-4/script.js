@@ -1,16 +1,16 @@
-let fullName = document.getElementById("name");
-let discord = document.getElementById("discord");
-let github = document.getElementById("github");
-let personalityType = document.getElementById("personalityType");
-let favoritMat = document.getElementById("favoritmat");
-let birthYear = document.getElementById("birthyear");
-let zodiac = document.getElementById("zodiac");
+let fullName = document.getElementById("name"); // declaring variable fullName and attaching it to the document object using getElementById method and then the id name
+let discord = document.getElementById("discord"); // declaring variable for discord and attaching it to the document object using getElementById mmethod and then the id name
+let github = document.getElementById("github"); // declaring variable for github and attaching it to the document object using getElementById method and then the id name
+let personalityType = document.getElementById("personalityType"); // declaring variable for personalityType and attaching it to the document object using getElementById method and then the id name
+let favoritMat = document.getElementById("favoritmat"); // declaring variable for favourite food and attaching it to the document object using getElementById method and then the id name
+let birthYear = document.getElementById("birthyear"); // declaring variable for birthyear and attaching it to the document object using getElementById method and then the id name
+let zodiac = document.getElementById("zodiac"); // declaring variable for zodiac and attaching it to the document object using getElementById method and then the id name
 
-fetch('./data.json')
-  .then((res) => res.json())
-  .then((data) => {
+fetch('./data.json') // using fetch to get data from our json file
+  .then((res) => res.json()) // res = response
+  .then((data) => { // we get the data unpacked with the .json.
     let next = document.getElementById("next"); // created variable for button "show next user" that exist within the HTML file
-    let i = 0; // We start from index 0 in data.json
+    let i = 0; // We declare a variable i and set it to 0 so as to start from index 0 in data.json
 
     for (const element of data) {
       let option = document.createElement("option");
@@ -51,9 +51,9 @@ fetch('./data.json')
           zodiac.textContent = data[i].zodiac.name + " " + data[i].zodiac.symbol;
         })
 
-  let search = document.getElementById("search");
-  search.addEventListener("click", () => {
-    let searchInput = document.getElementById("searchInput").value;
+  let search = document.getElementById("search"); // declaring variable for search button. 
+  search.addEventListener("click", () => { // Here we add an eventlistener listening for a click. 
+    let searchInput = document.getElementById("searchInput").value; // declaring a variable called searchInput and set it equal to the value of the input in the field.
     for (const element of data) {
       if (searchInput.toLowerCase() === element.firstname.toLowerCase()) {
         fullName.textContent = element.firstname + " " + element.lastname;
