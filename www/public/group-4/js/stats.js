@@ -3,27 +3,36 @@ fetch('data/data.json')
   .then((data) => {
     let next = document.getElementById("next");
     let i = 0;
+
+    for (const element of data) {
+      let option = document.createElement("option");
+      let dataList = document.getElementById("userFirstName")
+      option.value = element.firstname;
+      dataList.appendChild(option);
+    }  
   
     next.addEventListener("click", () => {
       i++;
       if (i > data.length - 1) {
         i = 0;
       }
-          document.getElementById("name").textContent = data[i].firstname + " " + data[i].lastname;
-          document.getElementById("discord").textContent = data[i].discord;
-          document.getElementById("github").href = `https://github.com/${data[i].github}`;
-          document.getElementById("github").textContent = data[i].github;
-          document.getElementById("personalityType").textContent = data[i].personalityType;
-          document.getElementById("favoritmat").textContent = data[i].mat;
-          document.getElementById("birthYear").textContent = data[i].birthYear;
-          document.getElementById("zodiac").textContent = data[i].zodiac.name + " " + data[i].zodiac.symbol;
+          fullName.textContent = data[i].firstname + " " + data[i].lastname;
+          discord.textContent = data[i].discord;
+          github.href = `https://github.com/${data[i].github}`;
+          github.textContent = data[i].github;
+          personalityType.textContent = data[i].personalityType;
+          favoritMat.textContent = data[i].mat;
+          birthYear.textContent = data[i].birthYear;
+          zodiac.textContent = data[i].zodiac.name + " " + data[i].zodiac.symbol;
   })
+
   let previous = document.getElementById("previous");
   previous.addEventListener("click", () => {
     i--;
     if (i < 0) {
       i = data.length - 1;
     }
+<<<<<<< Updated upstream
         document.getElementById("name").textContent = data[i].firstname + " " + data[i].lastname;
 <<<<<<< HEAD
         document.getElementById("github").href = `https://github.com/${data[i].github}`;
@@ -39,8 +48,37 @@ fetch('data/data.json')
         document.getElementById("zodiac").textContent = data[i].zodiac.name + " " + data[i].zodiac.symbol;
       })
   
+=======
+          fullName.textContent = data[i].firstname + " " + data[i].lastname;
+          discord.textContent = data[i].discord;
+          github.href = `https://github.com/${data[i].github}`;
+          github.textContent = data[i].github;
+          personalityType.textContent = data[i].personalityType;
+          favoritMat.textContent = data[i].mat;
+          birthYear.textContent = data[i].birthYear;
+          zodiac.textContent = data[i].zodiac.name + " " + data[i].zodiac.symbol;
+        })
+
+  let search = document.getElementById("search");
+  search.addEventListener("click", () => {
+    let searchInput = document.getElementById("searchInput").value;
+    for (const element of data) {
+      if (searchInput.toLowerCase() === element.firstname.toLowerCase()) {
+        fullName.textContent = element.firstname + " " + element.lastname;
+        discord.textContent = element.discord;
+        github.href = `https://github.com/${element.github}`;
+        github.textContent = element.github;
+        personalityType.textContent = element.personalityType;
+        favoritMat.textContent = element.mat;
+        birthYear.textContent = element.birthYear;
+        zodiac.textContent = element.zodiac.name + " " + element.zodiac.symbol;
+      }
+    }
+  })
+>>>>>>> Stashed changes
 }).catch((err) => console.log(err));
 
+<<<<<<< HEAD:www/public/group-4/js/stats.js
 /**
  * if personalityType is =grön then show green, if personalityType is =blå then show blue, if personalityType is =röd then show red else show black
  */
@@ -81,3 +119,7 @@ if (zodiac.textContent === "Capricorn ♑ ") {
 //  
 //  function showName(event){
 //      // Använd value
+=======
+
+
+>>>>>>> 63089eb7b459e0b0a4bda738e2fbc3c5a5cac109:www/public/group-4/script.js
